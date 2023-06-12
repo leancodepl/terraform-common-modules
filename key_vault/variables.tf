@@ -10,6 +10,10 @@ variable "owner_access_policy" {
   type = object({
     tenant_id = string
     object_id = string
+
+    key_permissions         = optional(list(string))
+    secret_permissions      = optional(list(string))
+    certificate_permissions = optional(list(string))
   })
 }
 

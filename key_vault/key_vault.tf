@@ -22,6 +22,7 @@ resource "azurerm_key_vault_access_policy" "owner_access_to_main_keyvault" {
   tenant_id    = var.owner_access_policy.tenant_id
   object_id    = var.owner_access_policy.object_id
 
-  key_permissions    = ["Get", "List", "Update", "Create", "Delete", "Encrypt", "Decrypt"]
-  secret_permissions = ["List", "Get", "Set", "Delete", "Recover", "Purge"]
+  key_permissions         = coalesce(var.owner_access_policy.key_permissions, ["Get", "List", "Update", "Create", "Delete", "Encrypt", "Decrypt"])
+  secret_permissions      = coalesce(var.owner_access_policy.secret_permissions, ["List", "Get", "Set", "Delete", "Recover", "Purge"])
+  certificate_permissions = var.owner_access_policy.certificate_permissions
 }
