@@ -1,3 +1,10 @@
+/**
+ * # Managed Identity module
+ * The module manages application identity:
+ * - Azure Managed Identity and it's role assignments
+ * - Kubernetes service account and Azure Workload Identity integration
+ */
+
 terraform {
   required_version = ">= 1.0.2"
 

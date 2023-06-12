@@ -1,3 +1,8 @@
+/**
+ * # Key Vault module
+ * The module creates Azure Key Vault along with deployment access policy.
+ */
+
 terraform {
   required_version = ">= 1.0.2"
 

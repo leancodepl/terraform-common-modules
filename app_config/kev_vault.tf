@@ -13,8 +13,9 @@ resource "azurerm_key_vault_secret" "secrets" {
   for_each = nonsensitive(var.key_vault_secrets)
 
   key_vault_id = var.key_vault_id
-  depends_on   = [var.key_vault_deploy_policy_depends_on]
 
   name  = each.key
   value = each.value
+
+  depends_on = [var.key_vault_deploy_policy_depends_on]
 }
