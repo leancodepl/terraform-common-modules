@@ -7,6 +7,7 @@
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.39 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.58 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.20 |
+| <a name="requirement_mssql"></a> [mssql](#requirement\_mssql) | ~> 0.6 |
 
 ## Providers
 
@@ -23,11 +24,14 @@
 | <a name="module_app_config"></a> [app\_config](#module\_app\_config) | ../app_config | n/a |
 | <a name="module_key_vault"></a> [key\_vault](#module\_key\_vault) | ../key_vault | n/a |
 | <a name="module_managed_identity"></a> [managed\_identity](#module\_managed\_identity) | ../managed_identity | n/a |
+| <a name="module_mssql_server"></a> [mssql\_server](#module\_mssql\_server) | ../mssql-server | n/a |
+| <a name="module_mssql_user"></a> [mssql\_user](#module\_mssql\_user) | ../mssql-database-user | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
+| [azurerm_mssql_database.database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) | resource |
 | [azurerm_resource_group.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [kubernetes_deployment_v1.deployment](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment_v1) | resource |
 | [kubernetes_namespace_v1.main](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace_v1) | resource |
