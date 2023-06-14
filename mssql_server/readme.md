@@ -18,6 +18,7 @@
 
 | Name | Type |
 |------|------|
+| [azurerm_mssql_database.databases](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_firewall_rule.allow_all](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_firewall_rule) | resource |
 | [azurerm_mssql_firewall_rule.ip_rules](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_firewall_rule) | resource |
 | [azurerm_mssql_server.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) | resource |
@@ -41,6 +42,7 @@
 
 | Name | Description |
 |------|-------------|
+| <a name="output_mssql_databases"></a> [mssql\_databases](#output\_mssql\_databases) | n/a |
 | <a name="output_mssql_server_fqnd"></a> [mssql\_server\_fqnd](#output\_mssql\_server\_fqnd) | n/a |
 | <a name="output_mssql_server_id"></a> [mssql\_server\_id](#output\_mssql\_server\_id) | n/a |
 <!-- END_TF_DOCS -->

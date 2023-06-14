@@ -32,6 +32,13 @@ variable "firewall" {
   })
 }
 
+variable "databases" {
+  type = map(object({
+    sku       = string
+    collation = string
+  }))
+}
+
 variable "tags" {
   type = map(string)
 }

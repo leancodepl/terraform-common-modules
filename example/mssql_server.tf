@@ -1,5 +1,5 @@
 module "mssql_server" {
-  source = "../mssql-server"
+  source = "../mssql_server"
 
   server_name         = "terraform-common-modules-sql"
   resource_group_name = azurerm_resource_group.main.name
@@ -16,21 +16,22 @@ module "mssql_server" {
     object_id    = data.azuread_client_config.current.object_id
   }
 
+  databases = {
+    "app_db" = {
+      sku       = "Basic"
+      collation = "Latin1_General_CI_AS"
+    }
+  }
+
   tags     = {}
   sa_login = "test_sa"
 }
 
-resource "azurerm_mssql_database" "database" {
-  server_id = module.mssql_server.mssql_server_id
-  name      = "app_db"
-  sku_name  = "Basic"
-}
-
 module "mssql_user" {
-  source = "../mssql-database-user"
+  source = "../mssql_database_user"
 
   database = {
-    name = azurerm_mssql_database.database.name
+    name = module.mssql_server.mssql_databases["app_db"].name
     fqdn = module.mssql_server.mssql_server_fqnd
   }
 
