@@ -14,7 +14,8 @@ variable "key_vault_access_policy" {
 }
 
 variable "key_vault_secrets" {
-  type = map(string)
+  type      = map(string)
+  sensitive = true
 }
 
 variable "key_vault_deploy_policy_depends_on" {
@@ -26,15 +27,16 @@ variable "key_vault_deploy_policy_depends_on" {
   EOT
 }
 
+variable "k8s_namespace" {
+  type = string
+}
 
 variable "k8s_config_maps" {
   description = "ConfigMaps to create for the application"
 
   type = map(object({
-    namespace = string
-    labels    = map(string)
-
-    data = map(string)
+    labels = map(string)
+    data   = map(string)
   }))
 }
 
@@ -42,9 +44,7 @@ variable "k8s_secrets" {
   description = "Secrets to create for the application"
 
   type = map(object({
-    namespace = string
-    labels    = map(string)
-
-    data = map(string)
+    labels = map(string)
+    data   = map(string)
   }))
 }

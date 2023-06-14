@@ -3,7 +3,7 @@ resource "kubernetes_config_map_v1" "config_map" {
 
   metadata {
     name      = each.key
-    namespace = each.value.namespace
+    namespace = var.k8s_namespace
     labels    = each.value.labels
   }
 
@@ -15,7 +15,7 @@ resource "kubernetes_secret_v1" "secrets" {
 
   metadata {
     name      = each.key
-    namespace = each.value.namespace
+    namespace = var.k8s_namespace
     labels    = each.value.labels
   }
 

@@ -15,12 +15,11 @@ resource "azurerm_federated_identity_credential" "identity_credential" {
   issuer   = data.azurerm_kubernetes_cluster.cluster.oidc_issuer_url
 }
 
-
 resource "azurerm_role_assignment" "identity_roles" {
-  count = length(var.azure_role_assignments)
+  for_each = { for role in var.azure_role_assignments : "${role.scope}/${role.role_name}" => role }
 
   principal_id = azurerm_user_assigned_identity.identity.principal_id
 
-  scope                = var.azure_role_assignments[count.index].scope
-  role_definition_name = var.azure_role_assignments[count.index].role_name
+  scope                = each.value.scope
+  role_definition_name = each.value.role_name
 }

@@ -8,10 +8,11 @@ module "app_config" {
     object_id = module.managed_identity.managed_identity.object_id
   }
 
-  key_vault_secrets = sensitive({
+  key_vault_secrets = {
     "test-secret" = "secret"
-  })
+  }
 
+  k8s_namespace   = kubernetes_namespace_v1.main.metadata[0].name
   k8s_config_maps = {}
   k8s_secrets     = {}
 }
