@@ -30,5 +30,3 @@ resource "azurerm_role_assignment" "data_owners" {
   role_definition_name = "Azure Service Bus Data Owner"
   principal_id         = each.key
 }
-
-
