@@ -14,6 +14,10 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "~> 2.20"
     }
+    mssql = {
+      source  = "PGSSoft/mssql"
+      version = "~> 0.6"
+    }
   }
 }
 
@@ -27,6 +31,12 @@ provider "azurerm" {
 provider "kubernetes" {
   config_path    = var.kubernetes.config_path
   config_context = var.kubernetes.config_context
+}
+
+provider "mssql" {
+  azure_auth = {}
+
+  hostname = module.mssql_server.mssql_server_fqnd
 }
 
 data "azuread_client_config" "current" {}
