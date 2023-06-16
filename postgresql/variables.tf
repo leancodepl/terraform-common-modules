@@ -33,6 +33,11 @@ variable "databases" {
       roles      = optional(set(string), [])
       privileges = set(string)
     }))
+
+    ad_roles = optional(object({
+      app_role        = string
+      migrations_role = string
+    }))
   }))
 }
 
