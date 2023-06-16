@@ -1,0 +1,28 @@
+name: Terraform Common Modules
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    name: "Validate modules"
+    runs-on: ubuntu-latest
+    env:
+      MODULES_LIST: "./modules.txt"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - name: Find Modules
+        run: |
+          find . -name "*.tf" -exec dirname {} \; | sort | uniq > $MODULES_LIST
+          echo "Found modules:"
+          cat $MODULES_LIST
+      - name: Check formatting
+        run: terraform fmt -recursive -check -diff
+      - name: Validate modules
+        run: |
+          while read -r module; do (cd $module && terraform init && terraform validate); done < $MODULES_LIST
