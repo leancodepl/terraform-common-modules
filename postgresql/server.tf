@@ -30,7 +30,9 @@ resource "azurerm_postgresql_flexible_server" "main" {
   }
 
   maintenance_window {
-    start_hour = 3
+    start_hour   = var.maintenance_window.start_hour
+    day_of_week  = var.maintenance_window.day_of_week
+    start_minute = var.maintenance_window.start_minute
   }
 
   lifecycle {

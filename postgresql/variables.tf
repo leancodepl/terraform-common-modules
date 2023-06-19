@@ -52,6 +52,16 @@ variable "firewall" {
   })
 }
 
+variable "maintenance_window" {
+  type = object({
+    start_hour   = optional(number, 3)
+    day_of_week  = optional(number, null)
+    start_minute = optional(number, null)
+  })
+
+  default = {}
+}
+
 variable "tags" {
   type = map(string)
 }
