@@ -73,6 +73,10 @@ output "ad_roles" {
   } }
 }
 
+output "ad_setup_script" {
+  value = file("${path.module}/provision_psql.sh")
+}
+
 output "ad_setup_config" {
   value = {
     ad_roles_setup_script  = local.ad_roles_setup

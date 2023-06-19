@@ -6,7 +6,7 @@ output "server_id" {
   value = azurerm_postgresql_flexible_server.main.id
 }
 
-output "server_fqnd" {
+output "server_fqdn" {
   value = azurerm_postgresql_flexible_server.main.fqdn
 }
 
