@@ -7,6 +7,10 @@
 *.tfstate
 *.tfstate.*
 
+# HACK: currently there's no way to filter out directories when running terraform-docs
+.github/readme.md
+.vscode/readme.md
+
 # Crash log files
 crash.log
 crash.*.log
