@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MODULES_LIST: "./modules.txt"
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,3 +29,5 @@ jobs:
       - name: Validate modules
         run: |
           while read -r module; do (cd $module && terraform init && terraform validate); done < $MODULES_LIST
+      - name: tfsec
+        uses: aquasecurity/tfsec-action@master
