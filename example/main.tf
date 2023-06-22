@@ -51,3 +51,9 @@ resource "kubernetes_namespace_v1" "main" {
     name = "terraform-common-modules-example"
   }
 }
+
+locals {
+  tags = {
+    project = "tf-modules-example"
+  }
+}

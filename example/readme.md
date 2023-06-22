@@ -22,10 +22,13 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_config"></a> [app\_config](#module\_app\_config) | ../app_config | n/a |
+| <a name="module_blobstorage"></a> [blobstorage](#module\_blobstorage) | ../azure_blob_storage | n/a |
 | <a name="module_key_vault"></a> [key\_vault](#module\_key\_vault) | ../key_vault | n/a |
 | <a name="module_managed_identity"></a> [managed\_identity](#module\_managed\_identity) | ../managed_identity | n/a |
 | <a name="module_mssql_server"></a> [mssql\_server](#module\_mssql\_server) | ../mssql_server | n/a |
 | <a name="module_mssql_user"></a> [mssql\_user](#module\_mssql\_user) | ../mssql_database_user | n/a |
+| <a name="module_service_bus"></a> [service\_bus](#module\_service\_bus) | ../azure_service_bus | n/a |
+| <a name="module_storage_assets"></a> [storage\_assets](#module\_storage\_assets) | ../azure_blob_storage_assets | n/a |
 
 ## Resources
 
