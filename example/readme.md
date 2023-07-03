@@ -25,8 +25,10 @@
 | <a name="module_blobstorage"></a> [blobstorage](#module\_blobstorage) | ../azure_blob_storage | n/a |
 | <a name="module_key_vault"></a> [key\_vault](#module\_key\_vault) | ../key_vault | n/a |
 | <a name="module_managed_identity"></a> [managed\_identity](#module\_managed\_identity) | ../managed_identity | n/a |
+| <a name="module_migrations"></a> [migrations](#module\_migrations) | ../managed_identity | n/a |
 | <a name="module_mssql_server"></a> [mssql\_server](#module\_mssql\_server) | ../mssql_server | n/a |
 | <a name="module_mssql_user"></a> [mssql\_user](#module\_mssql\_user) | ../mssql_database_user | n/a |
+| <a name="module_postgresql"></a> [postgresql](#module\_postgresql) | ../postgresql | n/a |
 | <a name="module_service_bus"></a> [service\_bus](#module\_service\_bus) | ../azure_service_bus | n/a |
 | <a name="module_storage_assets"></a> [storage\_assets](#module\_storage\_assets) | ../azure_blob_storage_assets | n/a |
 
@@ -45,4 +47,10 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_azure"></a> [azure](#input\_azure) | n/a | <pre>object({<br>    tenant_id       = string<br>    subscription_id = string<br><br>    aks_resource_group_name = string<br>    aks_name                = string<br>  })</pre> | n/a | yes |
 | <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br>    config_path    = string<br>    config_context = string<br>  })</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_postgres_config"></a> [postgres\_config](#output\_postgres\_config) | n/a |
 <!-- END_TF_DOCS -->

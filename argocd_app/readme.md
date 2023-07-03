@@ -9,7 +9,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_argocd"></a> [argocd](#provider\_argocd) | ~> 5.5 |
+| <a name="provider_argocd"></a> [argocd](#provider\_argocd) | 5.5.0 |
 
 ## Resources
 
