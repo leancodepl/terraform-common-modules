@@ -29,5 +29,10 @@ jobs:
       - name: Validate modules
         run: |
           while read -r module; do (cd $module && terraform init && terraform validate); done < $MODULES_LIST
-      - name: tfsec
+      - name: Run tfsec commenter 
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+        with:
+          github_token: ${{ github.token }}
+      # Commenter only checks files that were changed in the PR, so running plain tfsec in case sth triggered change in other files  
+      - name: Run tfsec
         uses: aquasecurity/tfsec-action@master
