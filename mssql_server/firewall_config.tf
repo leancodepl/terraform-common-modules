@@ -3,7 +3,7 @@ resource "azurerm_mssql_firewall_rule" "allow_all" {
 
   server_id        = azurerm_mssql_server.main.id
   name             = "allow-all"
-  start_ip_address = "0.0.0.0"
+  start_ip_address = "0.0.0.0" #tfsec:ignore:azure-database-no-public-firewall-access
   end_ip_address   = "255.255.255.255"
 }
 

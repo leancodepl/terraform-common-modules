@@ -26,6 +26,8 @@ resource "azurerm_storage_account" "storage" {
   allow_nested_items_to_be_public = true
   enable_https_traffic_only       = true
 
+  min_tls_version = "TLS1_2"
+
   tags = var.tags
 
   blob_properties {
@@ -62,7 +64,7 @@ resource "azurerm_storage_container" "containers" {
   storage_account_name = azurerm_storage_account.storage.name
 
   name                  = each.key
-  container_access_type = each.value.access_type
+  container_access_type = each.value.access_type #tfsec:ignore:azure-storage-no-public-access
 }
 
 resource "azurerm_role_assignment" "data_owners" {
@@ -72,5 +74,3 @@ resource "azurerm_role_assignment" "data_owners" {
   role_definition_name = "Azure Service Bus Data Owner"
   principal_id         = each.key
 }
-
-

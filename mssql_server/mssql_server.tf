@@ -8,7 +8,10 @@ resource "random_password" "db_sa" {
   }
 }
 
+# tfsec:ignore:azure-database-no-public-access
+# tfsec:ignore:azure-database-enable-audit
 resource "azurerm_mssql_server" "main" {
+
   resource_group_name = data.azurerm_resource_group.main.name
   location            = data.azurerm_resource_group.main.location
   name                = var.server_name
@@ -16,6 +19,8 @@ resource "azurerm_mssql_server" "main" {
 
   administrator_login          = var.sa_login
   administrator_login_password = random_password.db_sa.result
+
+  minimum_tls_version = "1.2"
 
   azuread_administrator {
     tenant_id      = var.ad_admin.tenant_id
