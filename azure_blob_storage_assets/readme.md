@@ -1,4 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
+# Azure Blob Storage assets module
+Upload directory contents to a Blob Storage container
+
 ## Requirements
 
 | Name | Version |

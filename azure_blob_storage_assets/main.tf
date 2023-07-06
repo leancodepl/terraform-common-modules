@@ -1,3 +1,8 @@
+/**
+ * # Azure Blob Storage assets module
+ * Upload directory contents to a Blob Storage container 
+ */
+
 terraform {
   required_version = ">= 1.0.2"
 
