@@ -54,3 +54,33 @@
 | <a name="output_server_fqdn"></a> [server\_fqdn](#output\_server\_fqdn) | n/a |
 | <a name="output_server_id"></a> [server\_id](#output\_server\_id) | n/a |
 <!-- END_TF_DOCS -->
+
+## Active Directory roles setup
+
+Postgres provider cannot create AD roles (it cannot login via AD). Instead a setup script is generated. Two outputs are defined
+
+- `ad_setup_script` - contents of [provision_psql.sh](./provision_psql.sh)
+- `ad_setup_config` - setup SQL script and credentials to the server
+
+To use the script you need to output them in the root module.
+
+```terraform
+module "postgresql" {
+  source = "../postgresql"
+  // clipped
+}
+
+output "postgres_ad_roles_config" {
+  value     = module.postgresql.ad_setup_config
+  sensitive = true
+}
+
+// Script assumes this output name by default
+output "postgres_ad_roles_script" {
+  value     = module.postgresql.ad_setup_script
+  sensitive = false
+}
+```
+
+You can setup roles via a one-liner `tf output -raw postgres_ad_roles_script | bash` or export the script to a file.
+You need to have `psql` CLI installed to run the script.
