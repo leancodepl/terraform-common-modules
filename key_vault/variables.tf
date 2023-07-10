@@ -17,6 +17,11 @@ variable "owner_access_policy" {
   })
 }
 
+variable "soft_delete_retention_days" {
+  type    = number
+  default = 14
+}
+
 variable "tags" {
   type = map(string)
 }

@@ -5,11 +5,13 @@ resource "azurerm_key_vault" "main" {
   sku_name            = "standard"
   tenant_id           = var.owner_access_policy.tenant_id
 
-  purge_protection_enabled = true
+  purge_protection_enabled   = true
+  soft_delete_retention_days = var.soft_delete_retention_days
+
 
   network_acls {
     bypass                     = "None"
-    default_action             = var.network_acls.allow_all ? "Allow" : "Deny"
+    default_action             = var.network_acls.allow_all ? "Allow" : "Deny" #tfsec:ignore:azure-keyvault-specify-network-acl
     virtual_network_subnet_ids = var.network_acls.subnet_ids
     ip_rules                   = var.network_acls.ip_ranges
   }

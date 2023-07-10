@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 1.0.2"
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -7,6 +9,10 @@ terraform {
     postgresql = {
       source  = "cyrilgdn/postgresql"
       version = "~> 1.17"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.5"
     }
   }
 }

@@ -26,3 +26,36 @@ jobs:
       - name: Validate modules
         run: |
           while read -r module; do (cd $module && terraform init && terraform validate); done < $MODULES_LIST
+
+  tfsec:
+    name: Run tfsec
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run tfsec commenter 
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+        with:
+          github_token: ${{ github.token }}
+      # Commenter only checks files that were changed in the PR, so running plain tfsec in case sth triggered change in other files  
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@master
+
+  tflint:
+    name: Run TFLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v3
+      - name: Init TFLint
+        run: tflint --init
+        env:
+          # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Run TFLint
+        run: tflint --recursive --config "$(pwd)/.tflint.hcl"
