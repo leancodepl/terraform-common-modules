@@ -14,7 +14,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.39.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.61.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.63.0 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.21.1 |
 
 ## Modules
@@ -52,5 +52,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_postgres_config"></a> [postgres\_config](#output\_postgres\_config) | n/a |
+| <a name="output_postgres_ad_roles_config"></a> [postgres\_ad\_roles\_config](#output\_postgres\_ad\_roles\_config) | n/a |
+| <a name="output_postgres_ad_roles_script"></a> [postgres\_ad\_roles\_script](#output\_postgres\_ad\_roles\_script) | n/a |
 <!-- END_TF_DOCS -->

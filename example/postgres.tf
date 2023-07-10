@@ -47,7 +47,12 @@ module "postgresql" {
   tags = {}
 }
 
-output "postgres_config" {
+output "postgres_ad_roles_config" {
   value     = module.postgresql.ad_setup_config
   sensitive = true
+}
+
+output "postgres_ad_roles_script" {
+  value     = module.postgresql.ad_setup_script
+  sensitive = false
 }

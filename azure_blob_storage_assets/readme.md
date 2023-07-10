@@ -1,4 +1,7 @@
 <!-- BEGIN_TF_DOCS -->
+# Azure Blob Storage assets module
+Upload directory contents to a Blob Storage container
+
 ## Requirements
 
 | Name | Version |
@@ -10,7 +13,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.58 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.63.0 |
 
 ## Modules
 
