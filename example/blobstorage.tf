@@ -4,7 +4,9 @@ module "blobstorage" {
   resource_group_name  = azurerm_resource_group.main.name
   storage_account_name = "tfcommonmodules"
 
-  data_owners_object_ids = [module.managed_identity.managed_identity.object_id]
+  data_owners_object_ids = {
+    app = module.managed_identity.managed_identity.object_id
+  }
 
   blob_containers = {
     "public" = {
@@ -14,6 +16,7 @@ module "blobstorage" {
 
   blob_cors_rules = []
   tags            = {}
+  depends_on      = [azurerm_resource_group.main]
 }
 
 module "storage_assets" {
