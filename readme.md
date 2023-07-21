@@ -15,9 +15,23 @@
 
 <!-- END_TF_DOCS -->
 
+## Warnings
+
+#### Creating resource groups and using Azure modules in the same project
+
+Azure modules (`azure_blob_storage`, `azure_service_bus`, `key_vault`) read resource group as a data source. Because `azurerm_resource_group.name` is known _before_ apply, data sources will fail if the resource group is not yet created. You need to partially apply the resource group or pass it as `depends_on`. See the [example](example/service_bus.tf).
+
+#### Using `mssql_server` and `mssql_database_user` modules in the same project
+
+MSSQL provider requires the database to be create _before_ plan. You have to use partial apply to create the database first.
+
+#### Creating AD users in `postgresql` module
+
+Terraform cannot create an AD user for Postgres. Instead it generates a script to be applied on the database. More details in the [module readme](postgresql/readme.md).
+
 ## Modules relationships
 
-A birds eye view of what is managed by a module and how they would typically interact with each other. For brevity, it ignores the fact that eventually all the modules have outputs that will be stored in `app_config` (connection strings, access keys, etc)
+A birds eye view of what is managed by a module and how they would typically interact with each other. For brevity, it ignores the fact that eventually all the modules have outputs that will be stored in `app_config` (connection strings, access keys, etc).
 
 ```mermaid
 flowchart BT

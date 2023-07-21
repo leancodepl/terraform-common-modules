@@ -33,7 +33,7 @@
 | <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules) | n/a | <pre>list(object({<br>    allowed_origins    = list(string)<br>    allowed_methods    = optional(list(string), ["GET", "PUT", "DELETE"])<br>    allowed_headers    = optional(list(string), ["*"])<br>    exposed_headers    = optional(list(string), ["*"])<br>    max_age_in_seconds = optional(number, 3600)<br>  }))</pre> | n/a | yes |
 | <a name="input_blob_retention_policy"></a> [blob\_retention\_policy](#input\_blob\_retention\_policy) | n/a | `number` | `null` | no |
 | <a name="input_container_retention_policy"></a> [container\_retention\_policy](#input\_container\_retention\_policy) | n/a | `number` | `null` | no |
-| <a name="input_data_owners_object_ids"></a> [data\_owners\_object\_ids](#input\_data\_owners\_object\_ids) | Principals to grant 'Storage Blob Data Owner' role | `set(string)` | n/a | yes |
+| <a name="input_data_owners_object_ids"></a> [data\_owners\_object\_ids](#input\_data\_owners\_object\_ids) | Principals to grant 'Storage Blob Data Owner' role.<br>  Map key can be anything, they're only used to give terraform resources a stable identity. Map value should be the object id of the principal. | `map(string)` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | n/a | `string` | n/a | yes |
 | <a name="input_storage_account_name"></a> [storage\_account\_name](#input\_storage\_account\_name) | n/a | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | n/a | yes |
