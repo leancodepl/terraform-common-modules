@@ -55,8 +55,11 @@ variable "blob_containers" {
 }
 
 variable "data_owners_object_ids" {
-  type        = set(string)
-  description = "Principals to grant 'Storage Blob Data Owner' role"
+  type        = map(string)
+  description = <<EOT
+  Principals to grant 'Storage Blob Data Owner' role.
+  Map key can be anything, they're only used to give terraform resources a stable identity. Map value should be the object id of the principal.
+  EOT
 }
 
 variable "tags" {

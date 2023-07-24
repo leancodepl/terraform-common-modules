@@ -72,5 +72,5 @@ resource "azurerm_role_assignment" "data_owners" {
 
   scope                = azurerm_storage_account.storage.id
   role_definition_name = "Azure Service Bus Data Owner"
-  principal_id         = each.key
+  principal_id         = each.value
 }

@@ -17,6 +17,10 @@ resource "azurerm_key_vault" "main" {
   }
 
   tags = var.tags
+
+  lifecycle {
+    ignore_changes = [soft_delete_retention_days] # Cannot be changed once set
+  }
 }
 
 resource "azurerm_key_vault_access_policy" "owner_access_to_main_keyvault" {
