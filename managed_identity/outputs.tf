@@ -1,5 +1,6 @@
 output "managed_identity" {
   value = {
+    id        = azurerm_user_assigned_identity.identity.id
     name      = azurerm_user_assigned_identity.identity.name
     client_id = azurerm_user_assigned_identity.identity.client_id
     object_id = azurerm_user_assigned_identity.identity.principal_id
