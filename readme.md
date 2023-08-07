@@ -11,6 +11,7 @@
 - [mssql_database_user](./mssql_database_user/)
 - [mssql_server](./mssql_server/)
 - [posgresql](/postgresql/readme.md)
+- [tags](./tags/readme.md)
 
 <!-- BEGIN_TF_DOCS -->
 
