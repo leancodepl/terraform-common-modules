@@ -39,6 +39,7 @@ The module manages application identity:
 | <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br>    azure_resource_group    = string<br>    kubernetes_service_name = string<br>    namespace               = string<br>  })</pre> | n/a | yes |
 | <a name="input_managed_identity_name"></a> [managed\_identity\_name](#input\_managed\_identity\_name) | n/a | `string` | n/a | yes |
 | <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | n/a | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to each resource. Will be used both as Azure tags and Kubernetes labels. | `map(string)` | n/a | yes |
 
 ## Outputs
 
