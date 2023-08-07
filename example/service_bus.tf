@@ -8,6 +8,6 @@ module "service_bus" {
     app = module.managed_identity.managed_identity.object_id
   }
 
-  tags       = local.tags
+  tags       = module.tags.tags
   depends_on = [azurerm_resource_group.main]
 }

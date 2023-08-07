@@ -44,6 +44,8 @@ data "azuread_client_config" "current" {}
 resource "azurerm_resource_group" "main" {
   name     = "terraform-common-modules-example"
   location = "West Europe"
+
+  tags = module.tags.tags
 }
 
 resource "kubernetes_namespace_v1" "main" {
@@ -52,8 +54,3 @@ resource "kubernetes_namespace_v1" "main" {
   }
 }
 
-locals {
-  tags = {
-    project = "tf-modules-example"
-  }
-}

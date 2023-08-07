@@ -44,7 +44,7 @@ module "postgresql" {
     ip_rules  = {}
   }
 
-  tags = {}
+  tags = module.tags.tags
 }
 
 output "postgres_ad_roles_config" {
