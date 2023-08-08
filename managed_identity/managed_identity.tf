@@ -3,6 +3,7 @@ resource "azurerm_user_assigned_identity" "identity" {
   location            = data.azurerm_resource_group.main.location
 
   name = var.managed_identity_name
+  tags = var.tags
 }
 
 resource "azurerm_federated_identity_credential" "identity_credential" {

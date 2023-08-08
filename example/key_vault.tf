@@ -15,7 +15,7 @@ module "key_vault" {
     object_id = data.azuread_client_config.current.object_id
   }
 
-  tags = local.tags
+  tags = module.tags.tags
 
   depends_on = [azurerm_resource_group.main]
 }

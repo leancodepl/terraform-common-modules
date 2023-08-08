@@ -5,8 +5,8 @@ resource "kubernetes_service_account_v1" "service_account" {
     annotations = {
       "azure.workload.identity/client-id" = azurerm_user_assigned_identity.identity.client_id
     }
-    labels = {
+    labels = merge(var.tags, {
       "azure.workload.identity/use" = true
-    }
+    })
   }
 }

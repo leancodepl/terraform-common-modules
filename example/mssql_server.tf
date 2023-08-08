@@ -3,6 +3,7 @@ module "mssql_server" {
 
   server_name         = "terraform-common-modules-sql"
   resource_group_name = azurerm_resource_group.main.name
+  sa_login            = "test_sa"
 
   firewall = {
     allow_all    = true
@@ -23,8 +24,7 @@ module "mssql_server" {
     }
   }
 
-  tags     = {}
-  sa_login = "test_sa"
+  tags = module.tags.tags
 }
 
 module "mssql_user" {

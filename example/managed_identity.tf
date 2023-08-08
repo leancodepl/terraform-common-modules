@@ -12,6 +12,8 @@ module "managed_identity" {
 
   azure_role_assignments = []
 
+  tags = module.tags.tags
+
   depends_on = [azurerm_resource_group.main]
 }
 
@@ -28,6 +30,7 @@ module "migrations" {
   }
 
   azure_role_assignments = []
+  tags                   = module.tags.tags
 
   depends_on = [azurerm_resource_group.main]
 }

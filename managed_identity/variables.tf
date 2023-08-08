@@ -25,3 +25,8 @@ variable "kubernetes" {
     namespace               = string
   })
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags to apply to each resource. Will be used both as Azure tags and Kubernetes labels."
+}

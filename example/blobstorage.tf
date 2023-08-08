@@ -15,7 +15,7 @@ module "blobstorage" {
   }
 
   blob_cors_rules = []
-  tags            = {}
+  tags            = module.tags.tags
   depends_on      = [azurerm_resource_group.main]
 }
 
