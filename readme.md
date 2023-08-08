@@ -5,6 +5,7 @@
 - [azure_blob_storage](./azure_blob_storage/readme.md)
 - [azure_blob_storage_assets](./azure_blob_storage_assets/readme.md)
 - [azure_service_bus](./azure_service_bus/readme.md)
+- [firebase](./firebase/readme.md)
 - [key_vault](./key_vault/readme.md)
 - [managed_identity](./managed_identity/readme.md)
 - [mssql_database_user](./mssql_database_user/)
@@ -93,6 +94,14 @@ flowchart BT
     postgresql_roles[Postgres Roles]
     postgresql_admin[Postgres AD Admin]
     postgresql_firewall[Firewall configuration]
+    end
+
+    subgraph firebase
+    firebase_app[Firebase]
+    end
+
+    subgraph argocd
+    argocd_config[ArgoCD apps setup]
     end
 
     mssql_database_user --> managed_identity
