@@ -13,7 +13,7 @@ output "tags" {
   value       = merge(var.custom_tags, local.tags)
 
   precondition {
-    condition     = (var.deployed_on == null) != (var.dedicated_cluster != null)
+    condition     = (var.deployed_on == null) != (var.dedicated_cluster == null)
     error_message = "You must specify either `deployed_on` or `dedicated_cluster` variable, not both."
   }
 }
