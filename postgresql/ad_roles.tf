@@ -82,11 +82,11 @@ output "ad_setup_config" {
     ad_roles_setup_script  = local.ad_roles_setup
     ad_grants_setup_script = local.ad_grants_setup
     config = {
-      libpg_base_connection_string = "postgresql://${azurerm_postgresql_flexible_server.main.fqdn}/?sslmode=require"
-      administrator_login          = azurerm_postgresql_flexible_server.main.administrator_login
-      administrator_password       = azurerm_postgresql_flexible_server.main.administrator_password
-      ad_administrator_login       = azurerm_postgresql_flexible_server_active_directory_administrator.admin.principal_name
-      tenant_id                    = azurerm_postgresql_flexible_server_active_directory_administrator.admin.tenant_id
+      fqdn                   = azurerm_postgresql_flexible_server.main.fqdn
+      administrator_login    = azurerm_postgresql_flexible_server.main.administrator_login
+      administrator_password = azurerm_postgresql_flexible_server.main.administrator_password
+      ad_administrator_login = azurerm_postgresql_flexible_server_active_directory_administrator.admin.principal_name
+      tenant_id              = azurerm_postgresql_flexible_server_active_directory_administrator.admin.tenant_id
     }
   }
 }
