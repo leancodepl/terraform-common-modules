@@ -29,3 +29,8 @@ variable "cluster" {
     namespace = string
   })
 }
+
+variable "directory_recurse" {
+  type    = bool
+  default = false
+}
