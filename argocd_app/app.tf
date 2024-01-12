@@ -11,6 +11,10 @@ resource "argocd_application" "app" {
       repo_url        = var.repository.url
       target_revision = var.repository.revision
       path            = var.repository.path
+
+      directory {
+        recurse = var.directory_recurse
+      }
     }
 
     destination {
