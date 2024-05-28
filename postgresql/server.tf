@@ -51,6 +51,7 @@ resource "azurerm_postgresql_flexible_server_active_directory_administrator" "ad
 }
 
 resource "azurerm_postgresql_flexible_server_firewall_rule" "allow_all" {
+  count     = var.firewall.allow_all ? 1 : 0
   server_id = azurerm_postgresql_flexible_server.main.id
   name      = "allow-all"
 
