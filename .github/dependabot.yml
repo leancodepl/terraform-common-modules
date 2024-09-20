@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - directory: /
+  - directories: "**/*"
     package-ecosystem: terraform
     rebase-strategy: auto
     schedule:
