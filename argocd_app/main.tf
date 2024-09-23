@@ -4,7 +4,7 @@ terraform {
   required_providers {
     argocd = {
       source  = "oboukili/argocd"
-      version = "~> 5.5"
+      version = "~> 6.1"
     }
   }
 }
