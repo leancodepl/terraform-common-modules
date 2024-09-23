@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.58"
+      version = "~> 4.3"
     }
   }
 }
@@ -24,7 +24,7 @@ resource "azurerm_storage_account" "storage" {
   access_tier              = var.access_tier
 
   allow_nested_items_to_be_public = true
-  enable_https_traffic_only       = true
+  https_traffic_only_enabled      = true
 
   min_tls_version = "TLS1_2"
 
