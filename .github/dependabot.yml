@@ -6,3 +6,7 @@ updates:
     rebase-strategy: auto
     schedule:
       interval: monthly
+    groups:
+      all:
+        patterns:
+          - "*"
