@@ -61,7 +61,7 @@ resource "azurerm_storage_account" "storage" {
 resource "azurerm_storage_container" "containers" {
   for_each = var.blob_containers
 
-  storage_account_name = azurerm_storage_account.storage.name
+  storage_account_id = azurerm_storage_account.storage.id
 
   name                  = each.key
   container_access_type = each.value.access_type #tfsec:ignore:azure-storage-no-public-access
