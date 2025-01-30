@@ -11,6 +11,12 @@ variable "azure_resource_group" {
   type = string
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Defaults to the location of the resource group."
+}
+
 variable "azure_role_assignments" {
   type = list(object({
     role_name = string

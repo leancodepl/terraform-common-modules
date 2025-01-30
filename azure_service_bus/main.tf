@@ -15,7 +15,7 @@ data "azurerm_resource_group" "main" {
 
 resource "azurerm_servicebus_namespace" "service_bus" {
   resource_group_name = data.azurerm_resource_group.main.name
-  location            = data.azurerm_resource_group.main.location
+  location            = coalesce(var.location, data.azurerm_resource_group.main.location)
 
   name = var.service_bus_name
   sku  = var.sku

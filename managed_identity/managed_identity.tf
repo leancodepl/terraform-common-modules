@@ -1,6 +1,6 @@
 resource "azurerm_user_assigned_identity" "identity" {
   resource_group_name = data.azurerm_resource_group.main.name
-  location            = data.azurerm_resource_group.main.location
+  location            = coalesce(var.location, data.azurerm_resource_group.main.location)
 
   name = var.managed_identity_name
   tags = var.tags

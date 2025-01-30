@@ -13,7 +13,7 @@ resource "random_password" "db_sa" {
 resource "azurerm_mssql_server" "main" {
 
   resource_group_name = data.azurerm_resource_group.main.name
-  location            = data.azurerm_resource_group.main.location
+  location            = coalesce(var.location, data.azurerm_resource_group.main.location)
   name                = var.server_name
   version             = "12.0"
 
