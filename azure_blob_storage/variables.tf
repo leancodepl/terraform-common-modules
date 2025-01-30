@@ -6,6 +6,12 @@ variable "storage_account_name" {
   type = string
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Defaults to the location of the resource group."
+}
+
 variable "account_kind" {
   type    = string
   default = "StorageV2"
