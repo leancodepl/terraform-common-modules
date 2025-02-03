@@ -30,9 +30,9 @@ The module creates an SQL user mapped to an Azure AD Idenity.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_database"></a> [database](#input\_database) | n/a | <pre>object({<br>    name = string<br>    fqdn = string<br>  })</pre> | n/a | yes |
+| <a name="input_database"></a> [database](#input\_database) | n/a | <pre>object({<br/>    name = string<br/>    fqdn = string<br/>  })</pre> | n/a | yes |
 | <a name="input_roles"></a> [roles](#input\_roles) | n/a | `set(string)` | n/a | yes |
-| <a name="input_user"></a> [user](#input\_user) | n/a | <pre>object({<br>    name      = string<br>    client_id = string<br>  })</pre> | n/a | yes |
+| <a name="input_user"></a> [user](#input\_user) | n/a | <pre>object({<br/>    name      = string<br/>    client_id = string<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 

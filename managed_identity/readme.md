@@ -9,14 +9,14 @@ The module manages application identity:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.58 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.20 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.58 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.3 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 2.20 |
 
 ## Resources
@@ -35,8 +35,9 @@ The module manages application identity:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_azure_resource_group"></a> [azure\_resource\_group](#input\_azure\_resource\_group) | n/a | `string` | n/a | yes |
-| <a name="input_azure_role_assignments"></a> [azure\_role\_assignments](#input\_azure\_role\_assignments) | n/a | <pre>list(object({<br>    role_name = string<br>    scope     = string<br>  }))</pre> | n/a | yes |
-| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br>    azure_resource_group    = string<br>    kubernetes_service_name = string<br>    namespace               = string<br>  })</pre> | n/a | yes |
+| <a name="input_azure_role_assignments"></a> [azure\_role\_assignments](#input\_azure\_role\_assignments) | n/a | <pre>list(object({<br/>    role_name = string<br/>    scope     = string<br/>  }))</pre> | n/a | yes |
+| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br/>    azure_resource_group    = string<br/>    kubernetes_service_name = string<br/>    namespace               = string<br/>  })</pre> | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | Defaults to the location of the resource group. | `string` | `null` | no |
 | <a name="input_managed_identity_name"></a> [managed\_identity\_name](#input\_managed\_identity\_name) | n/a | `string` | n/a | yes |
 | <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | n/a | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to each resource. Will be used both as Azure tags and Kubernetes labels. | `map(string)` | n/a | yes |

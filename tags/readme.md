@@ -2,11 +2,17 @@
 The module is responsible for standardizing the tags that should be applied to all project
 resources.
 
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_custom_tags"></a> [custom\_tags](#input\_custom\_tags) | The custom tags that will be applied. | `map(string)` | n/a | yes |
+| <a name="input_custom_tags"></a> [custom\_tags](#input\_custom\_tags) | The custom tags that will be applied. | `map(string)` | `{}` | no |
 | <a name="input_dedicated_cluster"></a> [dedicated\_cluster](#input\_dedicated\_cluster) | The name of the dedicated cluster that the project is deployed on. | `string` | `null` | no |
 | <a name="input_deployed_on"></a> [deployed\_on](#input\_deployed\_on) | The cluster the application is deployed on. Use `self` if this is not cluster-deployed application or the cluster is part of the project. If this is deployed on a custom cluster, use `dedicated_cluster` variable instead. | `string` | `null` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment name. | `string` | n/a | yes |

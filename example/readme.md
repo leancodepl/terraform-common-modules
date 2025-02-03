@@ -4,8 +4,8 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.39 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.58 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 3.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.20 |
 | <a name="requirement_mssql"></a> [mssql](#requirement\_mssql) | ~> 0.6 |
 
@@ -13,9 +13,9 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.39.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.63.0 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.21.1 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~> 3.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.3 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 2.20 |
 
 ## Modules
 
@@ -31,6 +31,7 @@
 | <a name="module_postgresql"></a> [postgresql](#module\_postgresql) | ../postgresql | n/a |
 | <a name="module_service_bus"></a> [service\_bus](#module\_service\_bus) | ../azure_service_bus | n/a |
 | <a name="module_storage_assets"></a> [storage\_assets](#module\_storage\_assets) | ../azure_blob_storage_assets | n/a |
+| <a name="module_tags"></a> [tags](#module\_tags) | ../tags | n/a |
 
 ## Resources
 
@@ -45,8 +46,8 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_azure"></a> [azure](#input\_azure) | n/a | <pre>object({<br>    tenant_id       = string<br>    subscription_id = string<br><br>    aks_resource_group_name = string<br>    aks_name                = string<br>  })</pre> | n/a | yes |
-| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br>    config_path    = string<br>    config_context = string<br>  })</pre> | n/a | yes |
+| <a name="input_azure"></a> [azure](#input\_azure) | n/a | <pre>object({<br/>    tenant_id       = string<br/>    subscription_id = string<br/><br/>    aks_resource_group_name = string<br/>    aks_name                = string<br/>  })</pre> | n/a | yes |
+| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br/>    config_path    = string<br/>    config_context = string<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
