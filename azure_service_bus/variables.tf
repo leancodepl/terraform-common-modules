@@ -6,6 +6,12 @@ variable "service_bus_name" {
   type = string
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Defaults to the location of the resource group."
+}
+
 variable "sku" {
   type    = string
   default = "Standard"

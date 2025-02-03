@@ -4,15 +4,15 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.58 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.3 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.5 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.58 |
-| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.5 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.16.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
 
 ## Resources
 
@@ -30,9 +30,10 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ad_admin"></a> [ad\_admin](#input\_ad\_admin) | n/a | <pre>object({<br>    tenant_id    = string<br>    object_id    = string<br>    display_name = string<br>  })</pre> | n/a | yes |
-| <a name="input_databases"></a> [databases](#input\_databases) | n/a | <pre>map(object({<br>    sku       = string<br>    collation = string<br>  }))</pre> | n/a | yes |
-| <a name="input_firewall"></a> [firewall](#input\_firewall) | n/a | <pre>object({<br>    allow_all = bool<br>    ip_rules = map(object({<br>      start_ip = string<br>      end_ip   = string<br>    }))<br>    subnet_rules = map(object({<br>      subnet_id = string<br>    }))<br>  })</pre> | n/a | yes |
+| <a name="input_ad_admin"></a> [ad\_admin](#input\_ad\_admin) | n/a | <pre>object({<br/>    tenant_id    = string<br/>    object_id    = string<br/>    display_name = string<br/>  })</pre> | n/a | yes |
+| <a name="input_databases"></a> [databases](#input\_databases) | n/a | <pre>map(object({<br/>    sku       = string<br/>    collation = string<br/>  }))</pre> | n/a | yes |
+| <a name="input_firewall"></a> [firewall](#input\_firewall) | n/a | <pre>object({<br/>    allow_all = bool<br/>    ip_rules = map(object({<br/>      start_ip = string<br/>      end_ip   = string<br/>    }))<br/>    subnet_rules = map(object({<br/>      subnet_id = string<br/>    }))<br/>  })</pre> | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | Defaults to the location of the resource group. | `string` | `null` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | n/a | `string` | n/a | yes |
 | <a name="input_sa_login"></a> [sa\_login](#input\_sa\_login) | n/a | `string` | `null` | no |
 | <a name="input_server_name"></a> [server\_name](#input\_server\_name) | n/a | `string` | n/a | yes |

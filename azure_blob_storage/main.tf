@@ -14,7 +14,7 @@ data "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_storage_account" "storage" {
-  location            = data.azurerm_resource_group.main.location
+  location            = coalesce(var.location, data.azurerm_resource_group.main.location)
   resource_group_name = data.azurerm_resource_group.main.name
   name                = var.storage_account_name
 

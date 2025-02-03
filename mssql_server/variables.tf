@@ -6,6 +6,12 @@ variable "server_name" {
   type = string
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Defaults to the location of the resource group."
+}
+
 variable "sa_login" {
   type    = string
   default = null

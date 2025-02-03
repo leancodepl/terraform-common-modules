@@ -6,6 +6,12 @@ variable "resource_group_name" {
   type = string
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Defaults to the location of the resource group."
+}
+
 variable "owner_access_policy" {
   type = object({
     tenant_id = string

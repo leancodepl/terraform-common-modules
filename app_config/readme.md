@@ -58,14 +58,14 @@ The module manages application configuration:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.58 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.3 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.20 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.58 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.3 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | ~> 2.20 |
 
 ## Resources
@@ -81,11 +81,11 @@ The module manages application configuration:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_k8s_config_maps"></a> [k8s\_config\_maps](#input\_k8s\_config\_maps) | ConfigMaps to create for the application | <pre>map(object({<br>    labels = map(string)<br>    data   = map(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_k8s_config_maps"></a> [k8s\_config\_maps](#input\_k8s\_config\_maps) | ConfigMaps to create for the application | <pre>map(object({<br/>    labels = map(string)<br/>    data   = map(string)<br/>  }))</pre> | n/a | yes |
 | <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | n/a | `string` | n/a | yes |
-| <a name="input_k8s_secrets"></a> [k8s\_secrets](#input\_k8s\_secrets) | Secrets to create for the application | <pre>map(object({<br>    labels = map(string)<br>    data   = map(string)<br>  }))</pre> | n/a | yes |
-| <a name="input_key_vault_access_policy"></a> [key\_vault\_access\_policy](#input\_key\_vault\_access\_policy) | n/a | <pre>object({<br>    tenant_id = string<br>    object_id = string<br><br>    key_permissions         = optional(list(string))<br>    secret_permissions      = optional(list(string))<br>    certificate_permissions = optional(list(string))<br>  })</pre> | n/a | yes |
-| <a name="input_key_vault_deploy_policy_depends_on"></a> [key\_vault\_deploy\_policy\_depends\_on](#input\_key\_vault\_deploy\_policy\_depends\_on) | To manage key vault secrets, acting user needs to have access to key vault. If the access policy is setup in within the same root module <br>  pass `azurerm_key_vault_access_policy.<policy-name>` here to avoid race conditions. | `any` | `null` | no |
+| <a name="input_k8s_secrets"></a> [k8s\_secrets](#input\_k8s\_secrets) | Secrets to create for the application | <pre>map(object({<br/>    labels = map(string)<br/>    data   = map(string)<br/>  }))</pre> | n/a | yes |
+| <a name="input_key_vault_access_policy"></a> [key\_vault\_access\_policy](#input\_key\_vault\_access\_policy) | n/a | <pre>object({<br/>    tenant_id = string<br/>    object_id = string<br/><br/>    key_permissions         = optional(list(string))<br/>    secret_permissions      = optional(list(string))<br/>    certificate_permissions = optional(list(string))<br/>  })</pre> | n/a | yes |
+| <a name="input_key_vault_deploy_policy_depends_on"></a> [key\_vault\_deploy\_policy\_depends\_on](#input\_key\_vault\_deploy\_policy\_depends\_on) | To manage key vault secrets, acting user needs to have access to key vault. If the access policy is setup in within the same root module <br/>  pass `azurerm_key_vault_access_policy.<policy-name>` here to avoid race conditions. | `any` | `null` | no |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | n/a | `string` | n/a | yes |
 | <a name="input_key_vault_secrets"></a> [key\_vault\_secrets](#input\_key\_vault\_secrets) | n/a | `map(string)` | n/a | yes |
 <!-- END_TF_DOCS -->

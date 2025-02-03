@@ -1,6 +1,6 @@
 resource "azurerm_key_vault" "main" {
   resource_group_name = data.azurerm_resource_group.main.name
-  location            = data.azurerm_resource_group.main.location
+  location            = coalesce(var.location, data.azurerm_resource_group.main.location)
   name                = var.name
   sku_name            = "standard"
   tenant_id           = var.owner_access_policy.tenant_id
