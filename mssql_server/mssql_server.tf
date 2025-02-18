@@ -20,7 +20,8 @@ resource "azurerm_mssql_server" "main" {
   administrator_login          = var.sa_login
   administrator_login_password = random_password.db_sa.result
 
-  minimum_tls_version = "1.2"
+  public_network_access_enabled = var.firewall.allow_all
+  minimum_tls_version           = "1.2"
 
   azuread_administrator {
     tenant_id      = var.ad_admin.tenant_id
