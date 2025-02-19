@@ -40,8 +40,9 @@ variable "firewall" {
 
 variable "databases" {
   type = map(object({
-    sku       = string
-    collation = string
+    sku                  = string
+    collation            = string
+    storage_account_type = optional(string, "Geo")
   }))
 }
 
