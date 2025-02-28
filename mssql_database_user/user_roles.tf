@@ -11,3 +11,10 @@ resource "mssql_database_role_member" "roles" {
   role_id   = each.key
   member_id = mssql_azuread_service_principal.user.id
 }
+
+resource "mssql_database_permission" "permissions" {
+  for_each = var.permissions
+
+  permission   = each.key
+  principal_id = mssql_azuread_service_principal.user.id
+}

@@ -15,3 +15,8 @@ variable "user" {
 variable "roles" {
   type = set(string)
 }
+
+variable "permissions" {
+  type    = set(string)
+  default = []
+}
