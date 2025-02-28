@@ -7,3 +7,7 @@ output "managed_identity_connection_string" {
     "Authentication=Active Directory Default",
   ])
 }
+
+output "db_user_id" {
+  value = mssql_azuread_service_principal.user.id
+}
