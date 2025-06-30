@@ -12,6 +12,7 @@ variable "server" {
     sku_name            = string
     storage_mb          = number
     administrator_login = string
+    extensions          = optional(set(string), [])
   })
 }
 

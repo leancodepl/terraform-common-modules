@@ -22,6 +22,7 @@
 |------|------|
 | [azurerm_postgresql_flexible_server.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server) | resource |
 | [azurerm_postgresql_flexible_server_active_directory_administrator.admin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_active_directory_administrator) | resource |
+| [azurerm_postgresql_flexible_server_configuration.extensions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_configuration) | resource |
 | [azurerm_postgresql_flexible_server_database.databases](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_database) | resource |
 | [azurerm_postgresql_flexible_server_firewall_rule.allow_all](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_firewall_rule) | resource |
 | [azurerm_postgresql_flexible_server_firewall_rule.firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_firewall_rule) | resource |
@@ -39,7 +40,7 @@
 | <a name="input_firewall"></a> [firewall](#input\_firewall) | n/a | <pre>object({<br/>    allow_all = bool<br/><br/>    ip_rules = map(object({<br/>      start_ip = string<br/>      end_ip   = string<br/>    }))<br/>  })</pre> | n/a | yes |
 | <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | n/a | <pre>object({<br/>    start_hour   = optional(number, 3)<br/>    day_of_week  = optional(number, null)<br/>    start_minute = optional(number, null)<br/>  })</pre> | `{}` | no |
 | <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group) | n/a | <pre>object({<br/>    name     = string<br/>    location = string<br/>  })</pre> | n/a | yes |
-| <a name="input_server"></a> [server](#input\_server) | n/a | <pre>object({<br/>    name                = string<br/>    version             = string<br/>    sku_name            = string<br/>    storage_mb          = number<br/>    administrator_login = string<br/>  })</pre> | n/a | yes |
+| <a name="input_server"></a> [server](#input\_server) | n/a | <pre>object({<br/>    name                = string<br/>    version             = string<br/>    sku_name            = string<br/>    storage_mb          = number<br/>    administrator_login = string<br/>    extensions          = optional(set(string), [])<br/>  })</pre> | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | n/a | yes |
 
 ## Outputs

@@ -40,6 +40,12 @@ resource "azurerm_postgresql_flexible_server" "main" {
   }
 }
 
+resource "azurerm_postgresql_flexible_server_configuration" "extensions" {
+  server_id = azurerm_postgresql_flexible_server.main.id
+  name      = "azure.extensions"
+  value     = join(",", var.server.extensions)
+}
+
 resource "azurerm_postgresql_flexible_server_active_directory_administrator" "admin" {
   resource_group_name = azurerm_postgresql_flexible_server.main.resource_group_name
   server_name         = azurerm_postgresql_flexible_server.main.name
