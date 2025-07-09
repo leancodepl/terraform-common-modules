@@ -18,7 +18,7 @@ variable "location" {
 }
 
 variable "azure_role_assignments" {
-  type = list(object({
+  type = map(object({
     role_name = string
     scope     = string
   }))

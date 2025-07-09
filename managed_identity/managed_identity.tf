@@ -17,7 +17,7 @@ resource "azurerm_federated_identity_credential" "identity_credential" {
 }
 
 resource "azurerm_role_assignment" "identity_roles" {
-  for_each = { for role in var.azure_role_assignments : "${role.scope}/${role.role_name}" => role }
+  for_each = var.azure_role_assignments
 
   principal_id = azurerm_user_assigned_identity.identity.principal_id
 
