@@ -22,6 +22,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_annotations"></a> [annotations](#input\_annotations) | Additional annotations for the ArgoCD application (e.g., for notifications) | `map(string)` | `{}` | no |
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | n/a | `string` | n/a | yes |
 | <a name="input_argocd_namespace"></a> [argocd\_namespace](#input\_argocd\_namespace) | n/a | `string` | `"argocd"` | no |
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | n/a | <pre>object({<br/>    url       = string<br/>    namespace = string<br/>  })</pre> | n/a | yes |

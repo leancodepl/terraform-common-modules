@@ -1,7 +1,8 @@
 resource "argocd_application" "app" {
   metadata {
-    name      = var.app_name
-    namespace = var.argocd_namespace
+    name        = var.app_name
+    namespace   = var.argocd_namespace
+    annotations = var.annotations
   }
 
   spec {

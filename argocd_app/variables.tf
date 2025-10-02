@@ -34,3 +34,9 @@ variable "directory_recurse" {
   type    = bool
   default = false
 }
+
+variable "annotations" {
+  type        = map(string)
+  description = "Additional annotations for the ArgoCD application (e.g., for notifications)"
+  default     = {}
+}
