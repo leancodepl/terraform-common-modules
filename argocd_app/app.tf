@@ -1,7 +1,25 @@
+locals {
+  all_failure_channels = [for n in var.slack_notifications : n.channel]
+  all_sync_channels    = [for n in var.slack_notifications : n.channel if n.notify_on_success]
+
+  slack_annotations = merge(
+    length(local.all_failure_channels) > 0 ? {
+      "notifications.argoproj.io/subscribe.on-sync-failed.slack" = join(";", local.all_failure_channels)
+    } : {},
+    length(local.all_sync_channels) > 0 ? {
+      "notifications.argoproj.io/subscribe.on-sync-succeeded.slack" = join(";", local.all_sync_channels)
+    } : {}
+  )
+
+  all_annotations = merge(var.annotations, local.slack_annotations)
+}
+
 resource "argocd_application" "app" {
   metadata {
-    name      = var.app_name
-    namespace = var.argocd_namespace
+    name        = var.app_name
+    namespace   = var.argocd_namespace
+    annotations = local.all_annotations
+    labels      = var.labels
   }
 
   spec {
