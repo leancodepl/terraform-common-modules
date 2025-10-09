@@ -37,6 +37,15 @@ variable "directory_recurse" {
 
 variable "annotations" {
   type        = map(string)
-  description = "Additional annotations for the ArgoCD application (e.g., for notifications)"
+  description = "Additional annotations for the ArgoCD application"
   default     = {}
+}
+
+variable "slack_notifications" {
+  type = list(object({
+    channel            = string
+    notify_on_success  = optional(bool, false)
+  }))
+  description = "List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on successful syncs (true) or only on failures (false, default)"
+  default     = []
 }

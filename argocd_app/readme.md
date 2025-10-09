@@ -30,4 +30,5 @@
 | <a name="input_enable_auto_sync"></a> [enable\_auto\_sync](#input\_enable\_auto\_sync) | n/a | `bool` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | n/a | `string` | n/a | yes |
 | <a name="input_repository"></a> [repository](#input\_repository) | n/a | <pre>object({<br/>    url      = string,<br/>    revision = string,<br/>    path     = string,<br/>  })</pre> | n/a | yes |
+| <a name="input_slack_notifications"></a> [slack\_notifications](#input\_slack\_notifications) | List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on successful syncs (true) or only on failures (false) | <pre>list(object({<br/>    channel            = string<br/>    notify_on_success  = bool<br/>  }))</pre> | `[]` | no |
 <!-- END_TF_DOCS -->
