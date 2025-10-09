@@ -31,5 +31,5 @@
 | <a name="input_labels"></a> [labels](#input\_labels) | Additional labels for the ArgoCD application | `map(string)` | `{}` | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | n/a | `string` | n/a | yes |
 | <a name="input_repository"></a> [repository](#input\_repository) | n/a | <pre>object({<br/>    url      = string,<br/>    revision = string,<br/>    path     = string,<br/>  })</pre> | n/a | yes |
-| <a name="input_slack_notifications"></a> [slack\_notifications](#input\_slack\_notifications) | List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on successful syncs (true) or only on failures (false, default) | <pre>list(object({<br/>    channel            = string<br/>    notify_on_success  = optional(bool, false)<br/>  }))</pre> | `[]` | no |
+| <a name="input_slack_notifications"></a> [slack\_notifications](#input\_slack\_notifications) | List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on failures (false, default) or on all syncs (true) | <pre>list(object({<br/>    channel            = string<br/>    notify_on_success  = optional(bool, false)<br/>  }))</pre> | `[]` | no |
 <!-- END_TF_DOCS -->

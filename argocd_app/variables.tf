@@ -52,6 +52,6 @@ variable "slack_notifications" {
     channel           = string
     notify_on_success = optional(bool, false)
   }))
-  description = "List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on successful syncs (true) or only on failures (false, default)"
+  description = "List of Slack channels to send ArgoCD notifications to. Each entry specifies a channel and whether to notify on failures (false, default) or on all syncs (true)"
   default     = []
 }
