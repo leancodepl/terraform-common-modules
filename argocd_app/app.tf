@@ -1,6 +1,6 @@
 locals {
   all_failure_channels = [for n in var.slack_notifications : n.channel]
-  all_sync_channels     = [for n in var.slack_notifications : n.channel if n.notify_on_success]
+  all_sync_channels    = [for n in var.slack_notifications : n.channel if n.notify_on_success]
 
   slack_annotations = merge(
     length(local.all_failure_channels) > 0 ? {
