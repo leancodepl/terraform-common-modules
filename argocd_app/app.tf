@@ -19,6 +19,7 @@ resource "argocd_application" "app" {
     name        = var.app_name
     namespace   = var.argocd_namespace
     annotations = local.all_annotations
+    labels      = var.labels
   }
 
   spec {

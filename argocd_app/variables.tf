@@ -41,6 +41,12 @@ variable "annotations" {
   default     = {}
 }
 
+variable "labels" {
+  type        = map(string)
+  description = "Additional labels for the ArgoCD application"
+  default     = {}
+}
+
 variable "slack_notifications" {
   type = list(object({
     channel            = string
