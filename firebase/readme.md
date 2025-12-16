@@ -3,16 +3,16 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.2 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.5 |
-| <a name="requirement_google-beta"></a> [google-beta](#requirement\_google-beta) | ~> 6.5 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 7.13 |
+| <a name="requirement_google-beta"></a> [google-beta](#requirement\_google-beta) | ~> 7.13 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.5 |
-| <a name="provider_google-beta"></a> [google-beta](#provider\_google-beta) | ~> 6.5 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 7.13 |
+| <a name="provider_google-beta"></a> [google-beta](#provider\_google-beta) | ~> 7.13 |
 
 ## Resources
 
