@@ -1,0 +1,17 @@
+# CRITICAL: Default storage network action should be deny.
+# This module intentionally allows consumer-defined networking, including
+# public access for bootstrap/dev environments.
+AZU-0012
+
+# MEDIUM: Storage logging should be enabled.
+# Logging destination/retention is configured by consumer environment policy.
+AZU-0057
+
+# LOW: Geo-redundant replication should be used.
+# Replication SKU is intentionally consumer-controlled for cost/data locality.
+AZU-0058
+
+# MEDIUM: Infrastructure encryption should be enabled.
+# Encryption mode is environment-driven and may vary by region/constraints.
+AZU-0061
+

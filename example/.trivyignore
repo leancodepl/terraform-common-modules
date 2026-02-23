@@ -1,0 +1,48 @@
+# CRITICAL: Default storage network action should be deny.
+# Example stack is intentionally permissive to keep sample usage simple.
+AZU-0012
+
+# LOW: Secret should define content type.
+# Example values are placeholders, not production secret payloads.
+AZU-0015
+
+# LOW: Secret should define expiration.
+# Example values are non-production and rotated by environment automation.
+AZU-0017
+
+# MEDIUM: PostgreSQL log_connections should be ON.
+# Example stack keeps DB parameter baseline minimal for readability.
+AZU-0019
+
+# MEDIUM: PostgreSQL connection_throttling should be ON.
+# Throttling policy is applied by environment-level DB parameter sets.
+AZU-0021
+
+# MEDIUM: Database should not be publicly accessible.
+# Example composition may expose resources for integration/bootstrap testing.
+AZU-0022
+
+# MEDIUM: PostgreSQL log_checkpoints should be ON.
+# Logging depth is intentionally environment-controlled.
+AZU-0024
+
+# MEDIUM: Minimum TLS should be enforced.
+# TLS baseline is configured by consumers of underlying modules.
+AZU-0026
+
+# HIGH: Firewall should not permit public access.
+# Example setup may open access to simplify initial connectivity.
+AZU-0029
+
+# MEDIUM: Storage logging should be enabled.
+# Logging destination/retention is configured in consuming environments.
+AZU-0057
+
+# LOW: Geo-redundant replication should be used.
+# Replication SKU is intentionally left to environment cost/region strategy.
+AZU-0058
+
+# MEDIUM: Infrastructure encryption should be enabled.
+# Encryption policy is controlled in consumer environment baselines.
+AZU-0061
+

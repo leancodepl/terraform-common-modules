@@ -1,0 +1,24 @@
+# MEDIUM: PostgreSQL log_connections should be ON.
+# Logging policy is managed by consuming environments.
+AZU-0019
+
+# MEDIUM: PostgreSQL connection_throttling should be ON.
+# Connection throttling defaults are left configurable for compatibility.
+AZU-0021
+
+# MEDIUM: Database should not be publicly accessible.
+# Module supports both restricted and bootstrap/public deployment modes.
+AZU-0022
+
+# MEDIUM: PostgreSQL log_checkpoints should be ON.
+# Checkpoint logging is environment-tuned by consumers.
+AZU-0024
+
+# MEDIUM: Minimum TLS should be enforced.
+# TLS baseline is configured by caller modules per environment requirements.
+AZU-0026
+
+# HIGH: Firewall should not permit public access.
+# Firewall posture is consumer-controlled to support migration/bootstrap cases.
+AZU-0029
+
