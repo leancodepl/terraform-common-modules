@@ -78,7 +78,7 @@ jobs:
           github_token: ${{ github.token }}
 
       - name: TFLint Init
-        run: tflint --init
+        run: tflint --init --config "${{ github.workspace }}/.tflint.hcl"
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
