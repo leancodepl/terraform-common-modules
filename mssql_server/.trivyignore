@@ -1,0 +1,5 @@
+# HIGH: Firewall rules should not permit public access.
+# This reusable module supports controlled bootstrap/public scenarios;
+# production callers are expected to provide restricted firewall rules.
+AZU-0029
+
