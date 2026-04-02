@@ -4,6 +4,47 @@ The module manages application identity:
 - Azure Managed Identity and it's role assignments
 - Kubernetes service account and Azure Workload Identity integration
 
+## Breaking changes
+### `azure_role_assignments` variable changed from list to map
+
+Using list that created artificial key from resource\_id / role name requires the resource to be created up front, forcing partial applies.
+To mitigate it, now module requires the user to pass a map with a predefined key.
+
+Before:
+```
+module "managed_identity" {
+    ...
+    azure_role_assignments = [
+        {
+            name = "Storage Blob Data Contributor"
+            scope = azurerm_storage_account.storage.id
+        }
+    ]
+}
+```
+
+After:
+```
+module "managed_identity" {
+    ...
+    azure_role_assignments = {
+        "storage-contributor" = {
+            name = "Storage Blob Data Contributor"
+            scope = azurerm_storage_account.storage.id
+        }
+    }
+}
+```
+
+To migrate existing resources either let terraform destroy previous assignments or use `moved` block for each assignment:
+```
+moved {
+  from = module.managed_identity_api.azurerm_role_assignment.identity_roles["resource_id/Storage Blob Data Contributor"]
+  to   = module.managed_identity_api.azurerm_role_assignment.identity_roles["storage-contributor"]
+}
+```
+*/
+
 ## Requirements
 
 | Name | Version |
@@ -35,8 +76,8 @@ The module manages application identity:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_azure_resource_group"></a> [azure\_resource\_group](#input\_azure\_resource\_group) | n/a | `string` | n/a | yes |
-| <a name="input_azure_role_assignments"></a> [azure\_role\_assignments](#input\_azure\_role\_assignments) | n/a | <pre>list(object({<br/>    role_name = string<br/>    scope     = string<br/>  }))</pre> | n/a | yes |
-| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br/>    azure_resource_group    = string<br/>    kubernetes_service_name = string<br/>    namespace               = string<br/>  })</pre> | n/a | yes |
+| <a name="input_azure_role_assignments"></a> [azure\_role\_assignments](#input\_azure\_role\_assignments) | n/a | <pre>map(object({<br>    role_name = string<br>    scope     = string<br>  }))</pre> | n/a | yes |
+| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | n/a | <pre>object({<br>    azure_resource_group    = string<br>    kubernetes_service_name = string<br>    namespace               = string<br>  })</pre> | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Defaults to the location of the resource group. | `string` | `null` | no |
 | <a name="input_managed_identity_name"></a> [managed\_identity\_name](#input\_managed\_identity\_name) | n/a | `string` | n/a | yes |
 | <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | n/a | `string` | `null` | no |

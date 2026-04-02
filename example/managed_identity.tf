@@ -10,7 +10,7 @@ module "managed_identity" {
     namespace               = kubernetes_namespace_v1.main.metadata[0].name
   }
 
-  azure_role_assignments = []
+  azure_role_assignments = {}
 
   tags = module.tags.tags
 
@@ -29,7 +29,7 @@ module "migrations" {
     namespace               = kubernetes_namespace_v1.main.metadata[0].name
   }
 
-  azure_role_assignments = []
+  azure_role_assignments = {}
   tags                   = module.tags.tags
 
   depends_on = [azurerm_resource_group.main]
