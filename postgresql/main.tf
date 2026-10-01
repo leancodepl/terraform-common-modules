@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.56"
+      version = "~> 5.7"
     }
     postgresql = {
       source  = "cyrilgdn/postgresql"
